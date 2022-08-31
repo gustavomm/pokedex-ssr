@@ -7,7 +7,7 @@ type PropType = {
 
 export default function Pokedex({ pokemonList }: PropType) {
   return (
-    <div>
+    <div className="text-3xl">
       {pokemonList &&
         pokemonList.map((pokemon) => (
           <div key={pokemon.id}>{pokemon.name}</div>
