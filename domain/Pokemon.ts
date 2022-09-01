@@ -33,8 +33,8 @@ export interface Pokemon {
   name: string;
   abilities: Ability[];
   sprites: {
-    sprites: string[];
-  };
+    sprites: any;
+  }[];
   stats: Stat[];
   types: PokemonType[];
   weight: number;

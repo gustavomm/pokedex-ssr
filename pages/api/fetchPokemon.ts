@@ -45,5 +45,15 @@ export default async function fetchPokemon(
   }`;
 
   const { data } = await client.query({ query: POKEMON_QUERY });
-  return data.pokemon;
+  return data.pokemon
+    .map((pokemon: Pokemon) => {
+      const sprites = pokemon.sprites.map((sprites) => {
+        const parsedSprites = JSON.parse(sprites.sprites as string);
+        return { sprites: parsedSprites };
+      });
+      if (sprites[0].sprites.other["official-artwork"].front_default) {
+        return { ...pokemon, sprites };
+      }
+    })
+    .filter((pokemon: Pokemon) => pokemon !== undefined);
 }

@@ -12,21 +12,32 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ pokemonList }) => {
   return (
-    <div className={styles.container}>
-      <Pokedex pokemonList={pokemonList}></Pokedex>
+    <div className="dark">
+      <div className={"dark:bg-gray-900 dark:text-gray-200 p-5"}>
+        <Head>
+          <title>Pokedex</title>
+          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        </Head>
+        <Pokedex pokemonList={pokemonList}></Pokedex>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <footer className={styles.footer}>
+          <a
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Powered by{" "}
+            <span className={styles.logo}>
+              <Image
+                src="/vercel.svg"
+                alt="Vercel Logo"
+                width={72}
+                height={16}
+              />
+            </span>
+          </a>
+        </footer>
+      </div>
     </div>
   );
 };
@@ -36,7 +47,6 @@ export const getStaticProps = async () => {
     props: {
       pokemonList: await fetchPokemon(1200, 0),
     },
-    revalidate: 6000,
   };
 };
 
