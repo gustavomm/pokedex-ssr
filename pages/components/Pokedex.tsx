@@ -8,10 +8,10 @@ type PropType = {
 export default function Pokedex({ pokemonList }: PropType) {
   console.log(pokemonList);
   return (
-    <div className="grid grid-cols-4 gap-3 px-60">
+    <div className="grid md:grid-cols-4 grid-cols-1 gap-3 lg:px-40 xl:px-56 md:px-20 px-8 col">
       {pokemonList &&
         pokemonList.map((pokemon) => (
-          <div key={pokemon.id} className="flex flex-col mb-3">
+          <div key={pokemon.id} className="flex flex-col mx-auto max-w-[250px]">
             <Image
               src={
                 pokemon.sprites[0].sprites.other["official-artwork"]
@@ -20,7 +20,7 @@ export default function Pokedex({ pokemonList }: PropType) {
               alt={pokemon.name}
               width={250}
               height={250}
-              className="rounded-lg max-w bg-slate-800"
+              className="rounded-lg object-contain dark:bg-slate-800 bg-slate-200 max-w-[250px] transition-colors duration-500"
             ></Image>
 
             <div className="p-2 flex flex-col">
