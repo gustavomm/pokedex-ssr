@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import { Pokemon } from "../domain/Pokemon";
 import styles from "../styles/Home.module.css";
 import fetchPokemon from "./api/fetchPokemon";
-import { LightDarkSwitch } from "./components/LightDarkSwitch";
+import LightDarkSwitch from "./components/LightDarkSwitch";
 import Pokedex from "./components/Pokedex";
 
 type HomeProps = {
