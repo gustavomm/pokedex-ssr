@@ -11,7 +11,7 @@ export default function Pokedex({ pokemonList }: PropType) {
     <div className="grid grid-cols-4 gap-3 px-60">
       {pokemonList &&
         pokemonList.map((pokemon) => (
-          <div key={pokemon.id} className="flex flex-col">
+          <div key={pokemon.id} className="flex flex-col mb-3">
             <Image
               src={
                 pokemon.sprites[0].sprites.other["official-artwork"]
@@ -28,7 +28,9 @@ export default function Pokedex({ pokemonList }: PropType) {
                 "000" + pokemon.id
               ).slice(-3)}`}</span>
 
-              <span className="capitalize text-xl">{pokemon.name}</span>
+              <span className="capitalize text-xl font-extralight">
+                {pokemon.name}
+              </span>
 
               <div className="flex gap-1 mt-1">
                 {pokemon.types.map((type) => (
