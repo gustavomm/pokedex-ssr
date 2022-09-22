@@ -8,7 +8,7 @@ type PropType = {
 export default function Pokedex({ pokemonList }: PropType) {
   console.log(pokemonList);
   return (
-    <div className="grid md:grid-cols-4 grid-cols-1 gap-3 lg:px-40 xl:px-56 md:px-20 px-8 col">
+    <div className="grid md:grid-cols-4 grid-cols-2 gap-3 lg:px-40 xl:px-56 md:px-20 px-4 col">
       {pokemonList &&
         pokemonList.map((pokemon) => (
           <div key={pokemon.id} className="flex flex-col mx-auto max-w-[250px]">
