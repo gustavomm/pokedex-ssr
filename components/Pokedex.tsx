@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Pokemon } from "../../domain/Pokemon";
+import Link from "next/link";
+import { Pokemon } from "../domain/Pokemon";
 
 type PropType = {
   pokemonList: Pokemon[];
 };
 
 export default function Pokedex({ pokemonList }: PropType) {
-  console.log(pokemonList);
   return (
     <div className="grid md:grid-cols-4 grid-cols-2 gap-3 lg:px-40 xl:px-56 md:px-20 px-4 col">
       {pokemonList &&
@@ -27,10 +27,13 @@ export default function Pokedex({ pokemonList }: PropType) {
               <span className="text-xs text-slate-500">{`#${(
                 "000" + pokemon.id
               ).slice(-3)}`}</span>
-
-              <span className="capitalize text-xl font-extralight">
+              <Link
+                key={pokemon.id}
+                href={`/pokemon/${pokemon.id}`}
+                className="capitalize text-xl font-extralight"
+              >
                 {pokemon.name}
-              </span>
+              </Link>
 
               <div className="flex gap-1 mt-1">
                 {pokemon.types.map((type) => (

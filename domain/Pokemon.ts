@@ -27,15 +27,23 @@ export interface PokemonType {
 }
 
 export interface Pokemon {
-  base_experience: number;
-  height: number;
+  // base_experience: number;
+  // height: number;
   id: number;
   name: string;
-  abilities: Ability[];
+  // abilities: Ability[];
   sprites: {
     sprites: any;
   }[];
-  stats: Stat[];
+  // stats: Stat[];
   types: PokemonType[];
+  // weight: number;
+}
+
+export interface PokemonDetails extends Pokemon {
+  base_experience: number;
+  height: number;
+  abilities: Ability[];
+  stats: Stat[];
   weight: number;
 }
