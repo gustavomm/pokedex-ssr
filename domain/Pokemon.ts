@@ -1,5 +1,6 @@
 export interface Ability {
-  ability_id: number;
+  ability_id?: number;
+  slot?: number;
   ability: {
     generation_id: number;
     name: string;
@@ -45,5 +46,6 @@ export interface PokemonDetails extends Pokemon {
   height: number;
   abilities: Ability[];
   stats: Stat[];
+  sprites: any;
   weight: number;
 }
