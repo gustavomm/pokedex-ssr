@@ -1,5 +1,9 @@
+import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
+import { useCallback, useState } from "react";
+import { nameFilterAtom } from "../atoms/nameFilter";
+import debounce from "lodash/debounce";
 
 export default function NavBar({
   callback,
@@ -8,9 +12,22 @@ export default function NavBar({
   callback: Function;
   activeType: string;
 }) {
+  const [nameFilter, setNameFilter] = useAtom(nameFilterAtom);
+  const [unDebouncedFilter, setUnDebouncedFilter] = useState("");
+
+  const handleChange = (val: string) => {
+    setUnDebouncedFilter(val);
+    debouncedSave(val);
+  };
+
+  const debouncedSave = useCallback(
+    debounce((val) => setNameFilter(val), 300),
+    []
+  );
+
   return (
-    <div className="pl-12 pr-12 flex items-center justify-between gap-2 w-full mb-3 sticky bg-transparent z-40 top-0 backdrop-blur p-5 dark:border-slate-50/5 border-slate-900/5 border-b">
-      <div className="flex items-center gap-3">
+    <div className="pl-12 pr-12 flex justify-center items-center gap-2 mb-3 sticky bg-transparent z-40 top-0 backdrop-blur p-5 dark:border-slate-50/5 border-slate-900/5 border-b">
+      <div className="flex items-center gap-3 justify-self-start mr-auto flex-1">
         <Image
           src="/pokeball.png"
           alt="pokeball"
@@ -21,21 +38,31 @@ export default function NavBar({
           <a className="font-extralight">Pokedex</a>
         </Link>
       </div>
-      {activeType === "dark" ? (
-        <span
-          className="material-icons cursor-pointer"
-          onClick={() => callback()}
-        >
-          light_mode
-        </span>
-      ) : (
-        <span
-          className="material-icons cursor-pointer"
-          onClick={() => callback()}
-        >
-          dark_mode
-        </span>
-      )}
+      <div className="flex flex-1 justify-center">
+        <input
+          type="text"
+          className="bg-transparent/20 backdrop:blur justify-self-center rounded border border-slate-300/70 dark:border-slate-600/70 h-8 p-1 font-extralight"
+          onChange={(e) => handleChange(e.target.value)}
+          placeholder="Filter by name..."
+        />
+      </div>
+      <div className="flex flex-1 justify-center">
+        {activeType === "dark" ? (
+          <span
+            className="material-icons cursor-pointer justify-self-end self-end ml-auto"
+            onClick={() => callback()}
+          >
+            light_mode
+          </span>
+        ) : (
+          <span
+            className="material-icons cursor-pointer justify-self-end self-end ml-auto"
+            onClick={() => callback()}
+          >
+            dark_mode
+          </span>
+        )}
+      </div>
     </div>
   );
 }
