@@ -38,7 +38,7 @@ const PokemonDetails: NextPage<PokemonDetailsProps> = ({ pokemon }) => {
               </div>
             ))}
           </div>
-          <div className="grid cols-3 md:grid-cols-3 gap-8 p-6 dark:bg-slate-800 bg-slate-200 transition-color rounded-lg mb-6">
+          <div className="grid cols-3 md:grid-cols-3 gap-8 p-6 dark:bg-slate-800 bg-slate-200 transition-color duration-500 rounded-lg mb-6">
             <div className="flex flex-col">
               <span className="text-slate-500">Heigth</span>
               <span className="text-xl font-light">{`${
@@ -66,7 +66,7 @@ const PokemonDetails: NextPage<PokemonDetailsProps> = ({ pokemon }) => {
             </div>
           </div>
 
-          <div className="flex flex-col p-6 dark:bg-slate-800 bg-slate-200 transition-color rounded-lg">
+          <div className="flex flex-col p-6 dark:bg-slate-800 bg-slate-200 transition-color duration-500 rounded-lg">
             {pokemon.stats.map((stat) => {
               return (
                 <span
