@@ -27,12 +27,10 @@ export default function Pokedex({ pokemonList }: PropType) {
               <span className="text-xs text-slate-500">{`#${(
                 "000" + pokemon.id
               ).slice(-3)}`}</span>
-              <Link
-                key={pokemon.id}
-                href={`/pokemon/${pokemon.id}`}
-                className="capitalize text-xl font-extralight"
-              >
-                {pokemon.name}
+              <Link key={pokemon.id} href={`/pokemon/${pokemon.id}`}>
+                <a className="capitalize text-xl font-extralight">
+                  {pokemon.name}
+                </a>
               </Link>
 
               <div className="flex gap-1 mt-1">
