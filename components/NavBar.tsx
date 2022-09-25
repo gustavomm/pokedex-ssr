@@ -41,7 +41,7 @@ export default function NavBar({
       <div className="flex md:flex-1 justify-center">
         <input
           type="text"
-          className="bg-transparent/20 backdrop:blur justify-self-center rounded border focus:outline-emerald-500 border-slate-300/70 dark:border-slate-600/70 h-8 p-1 font-extralight"
+          className="bg-transparent/20 backdrop:blur w-32 md:w-48 justify-self-center rounded border focus:outline-emerald-500 border-slate-300/70 dark:border-slate-600/70 h-8 p-1 font-extralight"
           onChange={(e) => handleChange(e.target.value)}
           placeholder="Filter by name..."
         />
