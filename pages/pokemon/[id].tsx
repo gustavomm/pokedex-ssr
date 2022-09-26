@@ -45,6 +45,7 @@ const PokemonDetails: NextPage<PokemonDetailsProps> = ({ pokemon }) => {
                 pokemon.height / 10
               }m`}</span>
             </div>
+
             <div className="flex flex-col">
               <span className="text-slate-500">Weigth</span>
               <span className="text-xl font-light">{`${
