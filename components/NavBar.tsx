@@ -16,8 +16,9 @@ export default function NavBar({
   const [unDebouncedFilter, setUnDebouncedFilter] = useState("");
 
   const handleChange = (val: string) => {
-    setUnDebouncedFilter(val);
-    debouncedSave(val);
+    const lowerCaseVal = val.toLowerCase();
+    setUnDebouncedFilter(lowerCaseVal);
+    debouncedSave(lowerCaseVal);
   };
 
   const debouncedSave = useCallback(

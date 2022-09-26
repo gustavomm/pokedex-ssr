@@ -26,21 +26,14 @@ export default function Layout({ children }: { children: ReactNode }) {
 
         {children}
 
-        <footer className={styles.footer}>
+        <footer className="flex items-center justify-center flex-grow border-t dark:border-slate-50/5 border-slate-900/5 py-7">
           <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://github.com/gustavomm"
             target="_blank"
             rel="noopener noreferrer"
+            className="font-extralight text-lg"
           >
-            Powered by{" "}
-            <span className={styles.logo}>
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                width={72}
-                height={16}
-              />
-            </span>
+            Made by Gustavo Moreira
           </a>
         </footer>
       </div>
